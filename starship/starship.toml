@@ -1,0 +1,56 @@
+# Use custom format
+format = '''
+[┌───────────────────](bold green)
+[│](bold green)$directory$git_branch$git_commit$git_status$golang$time
+[└─$character](bold green)'''
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+# Set 'foo' as custom color palette
+palette = 'foo'
+
+# Define custom colors
+[palettes.foo]
+# Overwrite existing color
+blue = '21'
+# Define new color
+mustard = '#af8700'
+
+# Prompt Variables
+[character]
+success_symbol = "[>](bold green)"
+error_symbol = "[x](bold red)"
+vimcmd_symbol = "[<](bold green)"
+
+[git_branch]
+symbol = "git "
+
+[git_status]
+# conflicted = '='
+# ahead = '⇡'
+# behind = '⇣'
+# diverged = '⇕'
+# up_to_date = ''
+# untracked = '?'
+# stashed = '$'
+# modified = '!'
+# staged = '+'
+# renamed = '»'
+# deleted = '✘'
+# typechanged = ""
+# style = 'bold red'
+# ignore_submodules = false
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+
+[golang]
+symbol = "go "
+style = 'bold cyan'
+format = 'via [$symbol($version )]($style)'
+ 
+
